@@ -1,0 +1,10 @@
+Date of analysis: 2023-08-05_06-47-27
+Log file name: logtest.log
+Total lines processed: 10
+Total error count: 1
+Top 5 error messages with their occurrence count:
+      9  
+      1 Segmentation fault 
+List of critical events with line numbers:
+Line No. 1: 2023-08-05 03:31:17 [CRITICAL]  - 7557
+Line No. 3: 2023-08-05 03:31:17 [CRITICAL]  - 945
