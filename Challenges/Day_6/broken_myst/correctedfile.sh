@@ -12,24 +12,24 @@ mysterious_function() {
     local input_file="$1"
     local output_file="$2"
     
-    # 
+    # Apply ROT13 cipher to the content of the input file and save to output file
     tr 'A-Za-z' 'N-ZA-Mn-za-m' < "$input_file" > "$output_file"
 
-    # 
+    # Reverse the processed content and save to a temporary file
     rev "$output_file" > "reversed_temp.txt"
 
-    # 
+    # Generate a random number between 1 and 10
     random_number=$(( ( RANDOM % 10 ) + 1 ))
 
-    # Mystery loop: 
+    # Mystery loop: Repeat a series of transformations based on the random number
     for (( i=0; i<$random_number; i++ )); do
-        # 
+        # Reverse the temporarily reversed content
         rev "reversed_temp.txt" > "temp_rev.txt"
 
-        # 
+        # Apply ROT13 cipher to the temporarily reversed content and save to a temporary file
         tr 'A-Za-z' 'N-ZA-Mn-za-m' < "temp_rev.txt" > "temp_enc.txt"
 
-        # 
+        # Replace the contents of 'reversed_temp.txt' with the newly encrypted content
         mv "temp_enc.txt" "reversed_temp.txt"
     done
 
@@ -60,5 +60,6 @@ fi
 # Call the mysterious function to begin the process
 mysterious_function "$input_file" "$output_file"
 
-# Display the mysterious output
+# Display a message indicating completion and the location of the result
 echo "The mysterious process is complete. Check the '$output_file' for the result!"
+
